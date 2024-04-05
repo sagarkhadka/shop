@@ -1,7 +1,9 @@
+import HeroSlider from '@/components/HeroSlider'
+
 export default function Home() {
   return (
     <>
-      <h3 className='text-2xl'>Hello</h3>
+      <HeroSlider />
     </>
   )
 }
