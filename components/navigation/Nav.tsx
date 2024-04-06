@@ -14,7 +14,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 const Nav = () => {
   return (
     <>
-      <div className='container'>
+      <div className='container h-[64px]'>
         <div className='flex items-center justify-between py-3'>
           <h4 className='text-lg font-semibold'>Logo</h4>
 

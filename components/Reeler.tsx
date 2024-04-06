@@ -2,16 +2,19 @@
 
 import Reeller from 'reeller'
 import gsap from 'gsap'
+import { useEffect } from 'react'
 
 Reeller.registerGSAP(gsap)
 
 const Reeler = () => {
-  const reeller = new Reeller({
-    container: '.my-reel',
-    wrapper: '.my-reel-wrap',
-    itemSelector: '.my-reel-item',
-    speed: 10
-  })
+  useEffect(() => {
+    const reeller = new Reeller({
+      container: '.my-reel',
+      wrapper: '.my-reel-wrap',
+      itemSelector: '.my-reel-item',
+      speed: 10
+    })
+  }, [])
 
   return (
     <>
