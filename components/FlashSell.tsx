@@ -1,6 +1,7 @@
 import { Flame } from 'lucide-react'
 
 import SectionHeadline from './SectionHeadline'
+import ProductCard from './ProductCard'
 
 const FlashSell = () => {
   return (
@@ -10,6 +11,9 @@ const FlashSell = () => {
           title='Flash Sell'
           icon={<Flame color='#ff421d' size={34} />}
         />
+        <div className='mt-10'>
+          <ProductCard />
+        </div>
       </section>
     </>
   )
