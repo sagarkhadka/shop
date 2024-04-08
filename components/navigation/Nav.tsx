@@ -10,48 +10,38 @@ import {
   MenubarTrigger
 } from '@/components/ui/menubar'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { navData } from './nav-data'
+import User from './User'
 
 const Nav = () => {
   return (
     <>
-      <div className='container h-[64px]'>
-        <div className='flex items-center justify-between py-3'>
-          <h4 className='text-lg font-semibold'>Logo</h4>
+      <div className='mb-12 flex h-[75px] items-center bg-white'>
+        <div className='container'>
+          <div className='grid grid-cols-12 justify-between py-3'>
+            <h4 className='col-span-3 text-lg font-semibold'>Logo</h4>
 
-          <Menubar>
-            <MenubarMenu>
-              <MenubarTrigger>File</MenubarTrigger>
-              <MenubarContent>
-                <MenubarItem>
-                  New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-                </MenubarItem>
-                <MenubarItem>New Window</MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem>Share</MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem>Print</MenubarItem>
-              </MenubarContent>
-            </MenubarMenu>
+            <div className='col-span-6 flex justify-center'>
+              <Menubar>
+                {navData.map(({ title, children }) => (
+                  <MenubarMenu key={title}>
+                    <MenubarTrigger>{title}</MenubarTrigger>
+                    {children.length && (
+                      <MenubarContent>
+                        {children.map(({ title }) => (
+                          <MenubarItem key={title}>{title}</MenubarItem>
+                        ))}
+                      </MenubarContent>
+                    )}
+                  </MenubarMenu>
+                ))}
+              </Menubar>
+            </div>
 
-            <MenubarMenu>
-              <MenubarTrigger>File</MenubarTrigger>
-              <MenubarContent>
-                <MenubarItem>
-                  New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-                </MenubarItem>
-                <MenubarItem>New Window</MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem>Share</MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem>Print</MenubarItem>
-              </MenubarContent>
-            </MenubarMenu>
-          </Menubar>
-
-          <Avatar>
-            <AvatarImage src='https://github.com/shadcn.png' />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+            <div className='col-span-3 flex justify-end'>
+              <User />
+            </div>
+          </div>
         </div>
       </div>
     </>

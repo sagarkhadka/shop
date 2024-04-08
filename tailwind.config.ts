@@ -18,6 +18,10 @@ const config = {
       }
     },
     extend: {
+      colors: {
+        'body-gray': '#f5f5f5',
+        'fire-red': '#ff421d'
+      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
