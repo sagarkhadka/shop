@@ -5,11 +5,8 @@ import {
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
   MenubarTrigger
 } from '@/components/ui/menubar'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { navData } from './nav-data'
 import User from './User'
 
