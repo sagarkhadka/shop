@@ -16,7 +16,7 @@ import User from './User'
 const Nav = () => {
   return (
     <>
-      <div className='mb-12 flex h-[75px] items-center bg-white'>
+      <div className='mb-8 flex h-[75px] items-center bg-white'>
         <div className='container'>
           <div className='grid grid-cols-12 justify-between py-3'>
             <h4 className='col-span-3 text-lg font-semibold'>Logo</h4>
