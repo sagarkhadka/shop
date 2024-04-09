@@ -4,6 +4,7 @@ import { Manrope } from 'next/font/google'
 import '@/styles/globals.css'
 import Provider from './Provider'
 import Nav from '@/components/navigation/Nav'
+import Footer from '@/components/Footer'
 
 const manrope = Manrope({ subsets: ['latin'] })
 
@@ -25,7 +26,7 @@ export default function RootLayout({
             <Nav />
           </nav>
           <main>{children}</main>
-          <footer></footer>
+          <Footer />
         </Provider>
       </body>
     </html>

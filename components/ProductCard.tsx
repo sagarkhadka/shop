@@ -28,7 +28,7 @@ const ProductCard = ({ productTitle, imageUrl }: ICardProps) => {
             className='object-cover'
           />
         </div>
-        <CardHeader className='p-4'>
+        <CardHeader className='p-5'>
           <CardTitle className='text-lg font-semibold'>
             {productTitle}
           </CardTitle>
@@ -37,12 +37,12 @@ const ProductCard = ({ productTitle, imageUrl }: ICardProps) => {
               <Star color='#e99b4f' fill='#e99b4f' size={16} />
               <span>4.2 (10 review)</span>
             </span>
-            <span className='font-semibold text-slate-700'>
+            <span className='text-base font-semibold text-slate-700'>
               {currencyFormat(1400.25)}
             </span>
           </CardDescription>
         </CardHeader>
-        <CardFooter className='flex items-center gap-2 p-4 pt-0'>
+        <CardFooter className='flex items-center gap-2 p-5 pt-0'>
           <Button variant={'outline'} className='flex-1'>
             Add to Cart
           </Button>
