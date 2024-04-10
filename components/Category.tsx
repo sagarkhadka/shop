@@ -1,7 +1,6 @@
-import { Bath, DoorClosed, Watch } from 'lucide-react'
+import Image from 'next/image'
 
 import SectionHeadline from './SectionHeadline'
-import Image from 'next/image'
 
 const Category = () => {
   const data = [
@@ -71,11 +70,11 @@ const Category = () => {
       <section className='section-space'>
         <div className='container'>
           <SectionHeadline title='Category' />
-          <div className='grid grid-cols-2 rounded-lg bg-slate-50 sm:grid-cols-4 md:grid-cols-6'>
+          <div className='grid grid-cols-2 rounded-lg bg-slate-50 shadow-2xl shadow-gray-200/80 sm:grid-cols-4 md:grid-cols-6'>
             {data.map(({ title, imageUrl }) => (
               <div
                 key={title}
-                className='group flex cursor-pointer flex-col items-center justify-center gap-2 p-4 duration-200 hover:shadow-md'
+                className='group flex cursor-pointer flex-col items-center justify-center gap-3 p-4 duration-200'
               >
                 <Image
                   src={imageUrl}
@@ -84,7 +83,7 @@ const Category = () => {
                   width={70}
                   className='object-cover duration-200 group-hover:-translate-y-px'
                 />
-                <p className='text-center text-sm'>{title}</p>
+                <p className='text-center text-sm font-semibold'>{title}</p>
               </div>
             ))}
           </div>

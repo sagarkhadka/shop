@@ -10,6 +10,7 @@ import {
 } from './ui/card'
 import { Button } from './ui/button'
 import { currencyFormat } from '@/utils/currencyFormat'
+import { Badge } from './ui/badge'
 
 interface ICardProps {
   productTitle: string
@@ -19,13 +20,17 @@ interface ICardProps {
 const ProductCard = ({ productTitle, imageUrl }: ICardProps) => {
   return (
     <>
-      <Card className='overflow-hidden border-0 shadow-none'>
-        <div className='relative h-56 w-full'>
+      <Card className='overflow-hidden border-0 shadow-lg shadow-slate-200'>
+        <div className='relative isolate h-56 w-full'>
+          <div className='absolute left-3 top-3 z-10 flex flex-wrap gap-2'>
+            <Badge>-5% 0ff</Badge>
+            <Badge variant={'secondary'}>Best Deal</Badge>
+          </div>
           <Image
             src={imageUrl}
             alt={productTitle}
             fill
-            className='object-cover'
+            className='z-0 object-cover'
           />
         </div>
         <CardHeader className='p-5'>
@@ -37,8 +42,11 @@ const ProductCard = ({ productTitle, imageUrl }: ICardProps) => {
               <Star color='#e99b4f' fill='#e99b4f' size={16} />
               <span>4.2 (10 review)</span>
             </span>
-            <span className='text-base font-semibold text-slate-700'>
-              {currencyFormat(1400.25)}
+            <span className='flex items-center gap-1'>
+              <label className='line-through'>{currencyFormat(1400)}</label>
+              <label className='text-base font-semibold text-slate-700'>
+                {currencyFormat(1400 - 70)}
+              </label>
             </span>
           </CardDescription>
         </CardHeader>

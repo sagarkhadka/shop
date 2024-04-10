@@ -20,7 +20,9 @@ const config = {
     extend: {
       colors: {
         'body-gray': '#f5f5f5',
-        'fire-red': '#ff421d'
+        'fire-red': '#ff421d',
+        'primary-orange': '#ff5600',
+        'deep-blue': '#064788'
       },
       keyframes: {
         'accordion-down': {
