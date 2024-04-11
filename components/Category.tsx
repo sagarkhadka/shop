@@ -70,7 +70,7 @@ const Category = () => {
       <section className='section-space'>
         <div className='container'>
           <SectionHeadline title='Category' />
-          <div className='grid grid-cols-2 rounded-lg bg-slate-50 shadow-2xl shadow-gray-200/80 sm:grid-cols-4 md:grid-cols-6'>
+          <div className='grid grid-cols-2 rounded-lg bg-white shadow-2xl shadow-gray-200/80 sm:grid-cols-4 md:grid-cols-6'>
             {data.map(({ title, imageUrl }) => (
               <div
                 key={title}

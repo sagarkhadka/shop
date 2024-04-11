@@ -11,6 +11,7 @@ import {
 import { Button } from './ui/button'
 import { currencyFormat } from '@/utils/currencyFormat'
 import { Badge } from './ui/badge'
+import Link from 'next/link'
 
 interface ICardProps {
   productTitle: string
@@ -34,9 +35,11 @@ const ProductCard = ({ productTitle, imageUrl }: ICardProps) => {
           />
         </div>
         <CardHeader className='p-5'>
-          <CardTitle className='text-lg font-semibold'>
-            {productTitle}
-          </CardTitle>
+          <Link href='/product' className='w-fit'>
+            <CardTitle className='line-clamp-1 text-lg font-semibold duration-200 hover:text-primary-orange'>
+              {productTitle}
+            </CardTitle>
+          </Link>
           <CardDescription className='flex items-center justify-between'>
             <span className='flex items-center gap-2'>
               <Star color='#e99b4f' fill='#e99b4f' size={16} />

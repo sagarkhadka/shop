@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
 import { Manrope } from 'next/font/google'
+import type { Metadata } from 'next'
 
 import '@/styles/globals.css'
 import Provider from './Provider'
@@ -9,8 +9,8 @@ import Footer from '@/components/Footer'
 const manrope = Manrope({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'My Shop',
-  description: 'Multi vendor shopping app'
+  title: 'Chahana Store',
+  description: `Nepal's best top rated online shopping platform`
 }
 
 export default function RootLayout({
