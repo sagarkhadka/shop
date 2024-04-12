@@ -1,6 +1,9 @@
+import Image from 'next/image'
+
 import User from './User'
-import Search from './Search'
 import Menu from './Menu'
+import GlobalSearch from './GlobalSearch'
+import Link from 'next/link'
 
 const Nav = () => {
   return (
@@ -8,12 +11,20 @@ const Nav = () => {
       <div className='mb-8 flex items-center bg-white py-3 shadow-xl shadow-slate-100'>
         <div className='container'>
           <div className='grid grid-cols-12 justify-between pb-5 pt-3'>
-            <h4 className='col-span-3 flex items-center text-lg font-semibold'>
-              Logo
-            </h4>
+            <div className='col-span-3 flex items-center text-lg font-semibold'>
+              <Link href='/'>
+                <Image
+                  src='/logo.svg'
+                  alt='Chahana Store'
+                  height={40}
+                  width={200}
+                  className='object-contain'
+                />
+              </Link>
+            </div>
 
             <div className='col-span-6 flex justify-center'>
-              <Search />
+              <GlobalSearch />
             </div>
 
             <div className='col-span-3 flex justify-end'>

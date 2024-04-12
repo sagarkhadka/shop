@@ -8,6 +8,8 @@ import {
   MenubarTrigger
 } from '@/components/ui/menubar'
 import { navData } from './nav-data'
+import Link from 'next/link'
+import { Fragment } from 'react'
 
 const Menu = () => {
   return (
@@ -18,8 +20,12 @@ const Menu = () => {
             <MenubarTrigger>{title}</MenubarTrigger>
             {children.length && (
               <MenubarContent>
-                {children.map(({ title }) => (
-                  <MenubarItem key={title}>{title}</MenubarItem>
+                {children.map(({ title, url }) => (
+                  <Fragment key={title}>
+                    <Link href={`/${url}`}>
+                      <MenubarItem>{title}</MenubarItem>
+                    </Link>
+                  </Fragment>
                 ))}
               </MenubarContent>
             )}

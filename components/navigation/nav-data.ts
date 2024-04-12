@@ -3,15 +3,18 @@ export const navData = [
     title: 'Fashion',
     children: [
       {
-        title: "Mens's Fashion"
+        title: "Mens's Fashion",
+        url: 'products?category=fashion&sub-category=mens'
       },
 
       {
-        title: "Women's Fashion"
+        title: "Women's Fashion",
+        url: 'products?category=fashion&sub-category=women'
       },
 
       {
-        title: "Kids's Fashion"
+        title: "Kids's Fashion",
+        url: 'products?category=fashion&sub-category=kid'
       }
     ]
   },
@@ -20,39 +23,48 @@ export const navData = [
     title: 'Electronic Devices',
     children: [
       {
-        title: 'Smartphones'
+        title: 'Smartphones',
+        url: 'products?category=electronic-devices&sub-category=smartphones'
       },
 
       {
-        title: 'Feature Phones'
+        title: 'Feature Phones',
+        url: 'products?category=electronic-devices&sub-category=feature-phones'
       },
 
       {
-        title: 'Tablets'
+        title: 'Tablets',
+        url: 'products?category=electronic-devices&sub-category=tablets'
       },
 
       {
-        title: 'Laptops'
+        title: 'Laptops',
+        url: 'products?category=electronic-devices&sub-category=laptops'
       },
 
       {
-        title: 'Desktops'
+        title: 'Desktops',
+        url: 'products?category=electronic-devices&sub-category=desktops'
       },
 
       {
-        title: 'Monitors'
+        title: 'Monitors',
+        url: 'products?category=electronic-devices&sub-category=monitors'
       },
 
       {
-        title: 'Gaming Consoles'
+        title: 'Gaming Consoles',
+        url: 'products?category=electronic-devices&sub-category=gaming-consoles'
       },
 
       {
-        title: 'Cameras'
+        title: 'Cameras',
+        url: 'products?category=electronic-devices&sub-category=cameras'
       },
 
       {
-        title: 'Printers'
+        title: 'Printers',
+        url: 'products?category=electronic-devices&sub-category=printers'
       }
     ]
   },
@@ -61,19 +73,23 @@ export const navData = [
     title: 'TV & Home Appliances',
     children: [
       {
-        title: 'Televisions'
+        title: 'Televisions',
+        url: 'products?category=tv-and-home-appliances&sub-category=televisions'
       },
 
       {
-        title: 'TV Accessories'
+        title: 'TV Accessories',
+        url: 'products?category=tv-and-home-appliances&sub-category=tv-accessories'
       },
 
       {
-        title: 'Audio & Video Devices'
+        title: 'Audio & Video Devices',
+        url: 'products?category=tv-and-home-appliances&sub-category=audio-video-devices'
       },
 
       {
-        title: 'Small Kitchen Appliances'
+        title: 'Small Kitchen Appliances',
+        url: 'products?category=tv-and-home-appliances&sub-category=small-kitchen-appliances'
       }
     ]
   },
@@ -82,23 +98,28 @@ export const navData = [
     title: 'Home & Lifestyle',
     children: [
       {
-        title: 'Bath'
+        title: 'Bath',
+        url: 'products?category=home-lifestyle&sub-category=bath'
       },
 
       {
-        title: 'Bedding'
+        title: 'Bedding',
+        url: 'products?category=home-lifestyle&sub-category=bedding'
       },
 
       {
-        title: 'Decor'
+        title: 'Decor',
+        url: 'products?category=home-lifestyle&sub-category=decor'
       },
 
       {
-        title: 'Furniture'
+        title: 'Furniture',
+        url: 'products?category=home-lifestyle&sub-category=furniture'
       },
 
       {
-        title: 'Kitchen & Dining'
+        title: 'Kitchen & Dining',
+        url: 'products?category=home-lifestyle&sub-category=kitchen-dining'
       }
     ]
   }

@@ -35,7 +35,7 @@ const ProductCard = ({ productTitle, imageUrl }: ICardProps) => {
           />
         </div>
         <CardHeader className='p-5'>
-          <Link href='/product' className='w-fit'>
+          <Link href='/products/123' className='w-fit'>
             <CardTitle className='line-clamp-1 text-lg font-semibold duration-200 hover:text-primary-orange'>
               {productTitle}
             </CardTitle>
