@@ -1,20 +1,13 @@
-import ProductCard from '@/components/ProductCard'
+import { Suspense } from 'react'
+
+import ProductsContainer from '@/container/products/ProductsContainer'
 
 const page = () => {
   return (
     <>
-      <section className='container'>
-        <div className='grid grid-cols-4 gap-4'>
-          {Array.from({ length: 20 }).map((_, index) => (
-            <div key={index} className='p-1'>
-              <ProductCard
-                productTitle={`Product ${index + 1} title`}
-                imageUrl='/images/phone.jpg'
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+      <Suspense fallback={'Loading...'}>
+        <ProductsContainer />
+      </Suspense>
     </>
   )
 }

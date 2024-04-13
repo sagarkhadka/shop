@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Star } from 'lucide-react'
 
 import {
@@ -11,7 +12,6 @@ import {
 import { Button } from './ui/button'
 import { currencyFormat } from '@/utils/currencyFormat'
 import { Badge } from './ui/badge'
-import Link from 'next/link'
 
 interface ICardProps {
   productTitle: string
