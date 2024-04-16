@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string
+  label?: string
   error?: string
   required?: boolean
   id?: string
