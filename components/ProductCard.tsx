@@ -28,12 +28,12 @@ const ProductCard = ({ productTitle, imageUrl }: ICardProps) => {
     <>
       <Card className='group overflow-hidden border-0 shadow-lg shadow-slate-200'>
         <div className='relative isolate h-56 w-full'>
-          <div className='absolute inset-0 z-10 bg-gradient-to-b from-primary-orange/0 to-primary-orange/60 opacity-0 duration-200 group-hover:opacity-100' />
+          {/* <div className='absolute inset-0 z-10 bg-gradient-to-b from-primary-orange/0 to-primary-orange/60 opacity-0 duration-200 group-hover:opacity-100' /> */}
           <div className='absolute left-3 top-3 z-20 flex flex-wrap gap-2'>
             <Badge>-5% 0ff</Badge>
             <Badge variant={'secondary'}>Best Deal</Badge>
           </div>
-          <div className='absolute bottom-3 right-3 z-20 flex translate-y-3 flex-wrap gap-2'>
+          <div className='absolute bottom-2 right-3 z-20 flex translate-y-5 flex-wrap gap-2 opacity-0 duration-200 group-hover:translate-y-0 group-hover:opacity-100'>
             <Button
               variant={'link'}
               className='p-0'

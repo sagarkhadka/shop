@@ -10,7 +10,7 @@ const User = () => {
       <div className='flex items-center gap-4'>
         <div className='flex items-center gap-2'>
           <Button variant={'ghost'} asChild>
-            <Link href='/auth/login'>
+            <Link href='/login'>
               <span className='flex items-center gap-2'>
                 <UserRound color='#ff5600' size={18} />
                 <span>Login</span>
@@ -19,7 +19,7 @@ const User = () => {
           </Button>
           <Separator orientation='vertical' className='h-4 bg-deep-blue' />
           <Button variant={'ghost'} asChild>
-            <Link href='/auth/sign-up'>
+            <Link href='/sign-up'>
               <span>Sign Up</span>
             </Link>
           </Button>
