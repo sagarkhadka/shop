@@ -1,6 +1,7 @@
 import { Search } from 'lucide-react'
 
 import { Input } from '../ui/input'
+import { Button } from '../ui/button'
 
 const GlobalSearch = () => {
   return (
@@ -8,13 +9,15 @@ const GlobalSearch = () => {
       <div className='relative w-full'>
         <Input
           placeholder='Search'
-          className='m-0 rounded-full border-primary-orange pr-11 shadow-none'
+          className='m-0 h-11 rounded-full border-primary-orange py-4 pl-4 pr-11 shadow-none'
         />
-        <Search
-          color='#ff5600'
-          size={22}
-          className='absolute right-3 top-1.5'
-        />
+        <Button
+          variant={'ghost'}
+          size='sm'
+          className='absolute right-1.5 top-1.5 m-0 rounded-full bg-primary-orange/20'
+        >
+          <Search color='#ff5600' size={18} />
+        </Button>
       </div>
     </>
   )

@@ -12,20 +12,20 @@ const ProductsContainer = () => {
   return (
     <>
       <section className='container'>
-        <div className='grid grid-cols-12 gap-6'>
-          <div className='col-span-3'>filters</div>
-          <div className='col-span-9'>
-            <div className='grid grid-cols-4 gap-4'>
-              {Array.from({ length: 20 }).map((_, index) => (
-                <div key={index} className='p-1'>
-                  <ProductCard
-                    productTitle={`Product ${index + 1} title`}
-                    imageUrl='/images/phone.jpg'
-                  />
-                </div>
-              ))}
-            </div>
+        <div className='product-layout'>
+          <div className='filter-container'>filters</div>
+          <div className='product-container'>
+            {Array.from({ length: 20 }).map((_, index) => (
+              <div key={index} className='p-1'>
+                <ProductCard
+                  productTitle={`Product ${index + 1} title`}
+                  imageUrl='/images/phone.jpg'
+                />
+              </div>
+            ))}
           </div>
+          {/* <div className='col-span-9'>
+          </div> */}
         </div>
       </section>
     </>

@@ -2,8 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scrollbar-gutter: stable;
+}
+
 @layer utilities {
   .section-space {
     @apply mb-4 mt-24;
+  }
+}
+
+.product-layout {
+  @apply grid grid-cols-12 gap-6;
+
+  .filter-container {
+    @apply col-span-2;
+  }
+
+  .product-container {
+    @apply col-span-10 grid grid-cols-4 gap-4;
   }
 }

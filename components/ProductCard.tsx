@@ -1,6 +1,9 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Star } from 'lucide-react'
+import { Heart, ShoppingCart, Star } from 'lucide-react'
 
 import {
   Card,
@@ -19,13 +22,25 @@ interface ICardProps {
 }
 
 const ProductCard = ({ productTitle, imageUrl }: ICardProps) => {
+  const [liked, setLiked] = useState(false)
+
   return (
     <>
-      <Card className='overflow-hidden border-0 shadow-lg shadow-slate-200'>
+      <Card className='group overflow-hidden border-0 shadow-lg shadow-slate-200'>
         <div className='relative isolate h-56 w-full'>
-          <div className='absolute left-3 top-3 z-10 flex flex-wrap gap-2'>
+          <div className='absolute inset-0 z-10 bg-gradient-to-b from-primary-orange/0 to-primary-orange/60 opacity-0 duration-200 group-hover:opacity-100' />
+          <div className='absolute left-3 top-3 z-20 flex flex-wrap gap-2'>
             <Badge>-5% 0ff</Badge>
             <Badge variant={'secondary'}>Best Deal</Badge>
+          </div>
+          <div className='absolute bottom-3 right-3 z-20 flex translate-y-3 flex-wrap gap-2'>
+            <Button
+              variant={'link'}
+              className='p-0'
+              onClick={() => setLiked((prev) => !prev)}
+            >
+              <Heart color='#dc2626' fill={liked ? '#dc2626' : 'transparent'} />
+            </Button>
           </div>
           <Image
             src={imageUrl}
@@ -40,7 +55,7 @@ const ProductCard = ({ productTitle, imageUrl }: ICardProps) => {
               {productTitle}
             </CardTitle>
           </Link>
-          <CardDescription className='flex items-center justify-between'>
+          <CardDescription className='flex flex-wrap items-center justify-between'>
             <span className='flex items-center gap-2'>
               <Star color='#e99b4f' fill='#e99b4f' size={16} />
               <span>4.2 (10 review)</span>
@@ -54,8 +69,8 @@ const ProductCard = ({ productTitle, imageUrl }: ICardProps) => {
           </CardDescription>
         </CardHeader>
         <CardFooter className='flex items-center gap-2 p-5 pt-0'>
-          <Button variant={'outline'} className='flex-1'>
-            Add to Cart
+          <Button variant={'ghost'} className=''>
+            <ShoppingCart size={20} />
           </Button>
           <Button className='flex-1'>Buy Now</Button>
         </CardFooter>
