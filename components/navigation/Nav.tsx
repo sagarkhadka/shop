@@ -1,16 +1,16 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import User from './User'
 import Menu from './Menu'
 import GlobalSearch from './GlobalSearch'
-import Link from 'next/link'
 
 const Nav = () => {
   return (
     <>
       <div className='mb-8 flex items-center bg-white py-3 shadow-xl shadow-slate-100'>
         <div className='container'>
-          <div className='grid grid-cols-12 justify-between pb-5 pt-3'>
+          <div className='grid grid-cols-12 justify-between gap-10 pb-5 pt-3'>
             <div className='col-span-3 flex items-center text-lg font-semibold'>
               <Link href='/'>
                 <Image
