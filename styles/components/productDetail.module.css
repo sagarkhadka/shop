@@ -1,0 +1,19 @@
+.product_detail_wrapper {
+  @apply mt-4 grid grid-cols-12 gap-12;
+
+  .product_details {
+    @apply col-span-9 grid grid-cols-2 gap-8 overflow-hidden;
+
+    .product_images {
+      @apply overflow-hidden;
+    }
+
+    .details {
+      @apply col-span-1;
+    }
+  }
+
+  .product_order {
+    @apply col-span-3;
+  }
+}

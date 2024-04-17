@@ -1,125 +1,69 @@
-import React, { useState, ReactElement } from 'react'
-import AliceCarousel from 'react-alice-carousel'
-import 'react-alice-carousel/lib/alice-carousel.css'
+'use client'
 
-const items: ReactElement[] = [
-  <div className='item' data-value='1' key={125}>
-    1
-  </div>,
-  <div className='item' data-value='2' key={875}>
-    2
-  </div>,
-  <div className='item' data-value='3' key={876}>
-    3
-  </div>,
-  <div className='item' data-value='4' key={877}>
-    4
-  </div>,
-  <div className='item' data-value='5' key={878}>
-    5
-  </div>
-]
+import { useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/navigation'
+import 'swiper/css/thumbs'
+import Image from 'next/image'
 
-const thumbItems = (
-  items: ReactElement[],
-  setThumbIndex: React.Dispatch<React.SetStateAction<number>>,
-  setThumbAnimation: React.Dispatch<React.SetStateAction<boolean>>
-): ReactElement[] => {
-  return items.map((item, i) => (
-    <div
-      className='thumb'
-      onClick={() => {
-        setThumbIndex(i)
-        setThumbAnimation(true)
-      }}
-      key={i}
-    >
-      {item}
-    </div>
-  ))
-}
-
-const Carousel: React.FC = () => {
-  const [mainIndex, setMainIndex] = useState<number>(0)
-  const [mainAnimation, setMainAnimation] = useState<boolean>(false)
-  const [thumbIndex, setThumbIndex] = useState<number>(0)
-  const [thumbAnimation, setThumbAnimation] = useState<boolean>(false)
-  const [thumbs] = useState<ReactElement[]>(
-    thumbItems(items, setThumbIndex, setThumbAnimation)
-  )
-
-  const slideNext = () => {
-    if (!thumbAnimation && thumbIndex < thumbs.length - 1) {
-      setThumbAnimation(true)
-      setThumbIndex(thumbIndex + 1)
-    }
-  }
-
-  const slidePrev = () => {
-    if (!thumbAnimation && thumbIndex > 0) {
-      setThumbAnimation(true)
-      setThumbIndex(thumbIndex - 1)
-    }
-  }
-
-  const syncMainBeforeChange = () => {
-    setMainAnimation(true)
-  }
-
-  const syncMainAfterChange = (e: any) => {
-    setMainAnimation(false)
-
-    if (e.type === 'action') {
-      setThumbIndex(e.item)
-      setThumbAnimation(false)
-    } else {
-      setMainIndex(thumbIndex)
-    }
-  }
-
-  const syncThumbs = (e: any) => {
-    setThumbIndex(e.item)
-    setThumbAnimation(false)
-
-    if (!mainAnimation) {
-      setMainIndex(e.item)
-    }
-  }
+const ProductCarousel = () => {
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+  const data = [
+    'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=2010&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1543076447-215ad9ba6923?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  ]
 
   return (
     <>
-      <AliceCarousel
-        activeIndex={mainIndex}
-        animationType='fadeout'
-        animationDuration={800}
-        disableDotsControls
-        disableButtonsControls
-        items={items}
-        mouseTracking={!thumbAnimation}
-        onSlideChange={syncMainBeforeChange}
-        onSlideChanged={syncMainAfterChange}
-        touchTracking={!thumbAnimation}
-      />
-      <div className='thumbs'>
-        <AliceCarousel
-          activeIndex={thumbIndex}
-          autoWidth
-          disableDotsControls
-          disableButtonsControls
-          items={thumbs}
-          mouseTracking={false}
-          onSlideChanged={syncThumbs}
-          touchTracking={!mainAnimation}
-        />
-        <div className='btn-prev' onClick={slidePrev}>
-          &lang;
-        </div>
-        <div className='btn-next' onClick={slideNext}>
-          &rang;
-        </div>
-      </div>
+      <Swiper
+        style={
+          {
+            '--swiper-navigation-color': '#ff5600',
+            '--swiper-pagination-color': '#ff5600',
+            '--swiper-navigation-size': 28
+          } as any
+        }
+        loop={true}
+        spaceBetween={10}
+        navigation={true}
+        thumbs={{
+          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
+        }}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className='mb-3'
+      >
+        {data.map((item) => (
+          <>
+            <SwiperSlide className='relative aspect-[2/1.8] overflow-hidden rounded-xl border bg-white shadow-lg'>
+              <Image src={item} alt='' fill className='object-cover' />
+            </SwiperSlide>
+          </>
+        ))}
+      </Swiper>
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        loop={true}
+        spaceBetween={10}
+        slidesPerView={4}
+        freeMode={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className='thumb !p-2'
+      >
+        {data.map((item) => (
+          <>
+            <SwiperSlide className='relative aspect-[2/1.5] overflow-hidden rounded-xl border bg-white p-2 shadow-lg'>
+              <Image src={item} alt='' fill className='object-cover' />
+            </SwiperSlide>
+          </>
+        ))}
+      </Swiper>
     </>
   )
 }
 
-export default Carousel
+export default ProductCarousel

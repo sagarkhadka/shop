@@ -1,12 +1,26 @@
 'use client'
 
+import Order from '@/components/products/Order'
 import ProductCarousel from '@/components/products/ProductCarousel'
+import ProductDetails from '@/components/products/ProductDetails'
+import styles from '@/styles/components/productDetail.module.css'
 
 const ProductDetail = () => {
   return (
     <>
-      <h4>product descriptions</h4>
-      <ProductCarousel />
+      <div className={styles.product_detail_wrapper}>
+        <div className={styles.product_details}>
+          <div className={styles.product_images}>
+            <ProductCarousel />
+          </div>
+          <div className={styles.details}>
+            <ProductDetails />
+          </div>
+        </div>
+        <div className={styles.product_order}>
+          <Order />
+        </div>
+      </div>
     </>
   )
 }
