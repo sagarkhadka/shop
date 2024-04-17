@@ -1,77 +1,125 @@
-'use client'
+import React, { useState, ReactElement } from 'react'
+import AliceCarousel from 'react-alice-carousel'
+import 'react-alice-carousel/lib/alice-carousel.css'
 
-import React, { useState, useEffect, useCallback } from 'react'
-import { EmblaOptionsType } from 'embla-carousel'
-import useEmblaCarousel from 'embla-carousel-react'
+const items: ReactElement[] = [
+  <div className='item' data-value='1' key={125}>
+    1
+  </div>,
+  <div className='item' data-value='2' key={875}>
+    2
+  </div>,
+  <div className='item' data-value='3' key={876}>
+    3
+  </div>,
+  <div className='item' data-value='4' key={877}>
+    4
+  </div>,
+  <div className='item' data-value='5' key={878}>
+    5
+  </div>
+]
 
-import { Thumb } from './Thumb'
-
-type PropType = {
-  slides: number[]
-  options?: EmblaOptionsType
+const thumbItems = (
+  items: ReactElement[],
+  setThumbIndex: React.Dispatch<React.SetStateAction<number>>,
+  setThumbAnimation: React.Dispatch<React.SetStateAction<boolean>>
+): ReactElement[] => {
+  return items.map((item, i) => (
+    <div
+      className='thumb'
+      onClick={() => {
+        setThumbIndex(i)
+        setThumbAnimation(true)
+      }}
+      key={i}
+    >
+      {item}
+    </div>
+  ))
 }
 
-const ProductCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const [emblaMainRef, emblaMainApi] = useEmblaCarousel(options)
-  const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
-    containScroll: 'keepSnaps',
-    dragFree: true
-  })
-
-  const onThumbClick = useCallback(
-    (index: number) => {
-      if (!emblaMainApi || !emblaThumbsApi) return
-      emblaMainApi.scrollTo(index)
-    },
-    [emblaMainApi, emblaThumbsApi]
+const Carousel: React.FC = () => {
+  const [mainIndex, setMainIndex] = useState<number>(0)
+  const [mainAnimation, setMainAnimation] = useState<boolean>(false)
+  const [thumbIndex, setThumbIndex] = useState<number>(0)
+  const [thumbAnimation, setThumbAnimation] = useState<boolean>(false)
+  const [thumbs] = useState<ReactElement[]>(
+    thumbItems(items, setThumbIndex, setThumbAnimation)
   )
 
-  const onSelect = useCallback(() => {
-    if (!emblaMainApi || !emblaThumbsApi) return
-    setSelectedIndex(emblaMainApi.selectedScrollSnap())
-    emblaThumbsApi.scrollTo(emblaMainApi.selectedScrollSnap())
-  }, [emblaMainApi, emblaThumbsApi, setSelectedIndex])
+  const slideNext = () => {
+    if (!thumbAnimation && thumbIndex < thumbs.length - 1) {
+      setThumbAnimation(true)
+      setThumbIndex(thumbIndex + 1)
+    }
+  }
 
-  useEffect(() => {
-    if (!emblaMainApi) return
-    onSelect()
-    emblaMainApi.on('select', onSelect)
-    emblaMainApi.on('reInit', onSelect)
-  }, [emblaMainApi, onSelect])
+  const slidePrev = () => {
+    if (!thumbAnimation && thumbIndex > 0) {
+      setThumbAnimation(true)
+      setThumbIndex(thumbIndex - 1)
+    }
+  }
+
+  const syncMainBeforeChange = () => {
+    setMainAnimation(true)
+  }
+
+  const syncMainAfterChange = (e: any) => {
+    setMainAnimation(false)
+
+    if (e.type === 'action') {
+      setThumbIndex(e.item)
+      setThumbAnimation(false)
+    } else {
+      setMainIndex(thumbIndex)
+    }
+  }
+
+  const syncThumbs = (e: any) => {
+    setThumbIndex(e.item)
+    setThumbAnimation(false)
+
+    if (!mainAnimation) {
+      setMainIndex(e.item)
+    }
+  }
 
   return (
-    <div className='m-x-auto max-w-72'>
-      <div className='overflow-hidden' ref={emblaMainRef}>
-        <div className='ml-[calc(1rem*-1)] flex touch-pan-y'>
-          {slides.map((index) => (
-            <div className='flex pl-4' key={index}>
-              <div className='flex h-72 items-center justify-center rounded-lg text-lg shadow'>
-                {index + 1}
-              </div>
-            </div>
-          ))}
+    <>
+      <AliceCarousel
+        activeIndex={mainIndex}
+        animationType='fadeout'
+        animationDuration={800}
+        disableDotsControls
+        disableButtonsControls
+        items={items}
+        mouseTracking={!thumbAnimation}
+        onSlideChange={syncMainBeforeChange}
+        onSlideChanged={syncMainAfterChange}
+        touchTracking={!thumbAnimation}
+      />
+      <div className='thumbs'>
+        <AliceCarousel
+          activeIndex={thumbIndex}
+          autoWidth
+          disableDotsControls
+          disableButtonsControls
+          items={thumbs}
+          mouseTracking={false}
+          onSlideChanged={syncThumbs}
+          touchTracking={!mainAnimation}
+        />
+        <div className='btn-prev' onClick={slidePrev}>
+          &lang;
+        </div>
+        <div className='btn-next' onClick={slideNext}>
+          &rang;
         </div>
       </div>
-
-      <div className='mt-4'>
-        <div className='embla-thumbs__viewport' ref={emblaThumbsRef}>
-          <div className='embla-thumbs__container'>
-            {slides.map((index) => (
-              <Thumb
-                key={index}
-                onClick={() => onThumbClick(index)}
-                selected={index === selectedIndex}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+    </>
   )
 }
 
-export default ProductCarousel
-// https://codesandbox.io/p/sandbox/embla-carousel-thumbs-react-sjmctg?file=%2Fsrc%2Fjs%2Findex.tsx%3A4%2C50
+export default Carousel

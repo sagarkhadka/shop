@@ -11,15 +11,11 @@ export const Thumb: React.FC<PropType> = (props) => {
 
   return (
     <div
-      className={'embla-thumbs__slide'.concat(
+      className={'flex-[0,0,22%] sm:flex-[0,0,15%]'.concat(
         selected ? ' embla-thumbs__slide--selected' : ''
       )}
     >
-      <button
-        onClick={onClick}
-        type='button'
-        className='embla-thumbs__slide__number'
-      >
+      <button onClick={onClick} type='button' className=''>
         {index + 1}
       </button>
     </div>
