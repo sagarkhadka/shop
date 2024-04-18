@@ -3,6 +3,7 @@
 import Order from '@/components/products/Order'
 import ProductCarousel from '@/components/products/ProductCarousel'
 import ProductDetails from '@/components/products/ProductDetails'
+import StoreCard from '@/components/products/StoreCard'
 import styles from '@/styles/components/productDetail.module.css'
 
 const ProductDetail = () => {
@@ -12,6 +13,7 @@ const ProductDetail = () => {
         <div className={styles.product_details}>
           <div className={styles.product_images}>
             <ProductCarousel />
+            <StoreCard />
           </div>
           <div className={styles.details}>
             <ProductDetails />

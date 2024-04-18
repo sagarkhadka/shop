@@ -19,49 +19,52 @@ const ProductCarousel = () => {
 
   return (
     <>
-      <Swiper
-        style={
-          {
-            '--swiper-navigation-color': '#ff5600',
-            '--swiper-pagination-color': '#ff5600',
-            '--swiper-navigation-size': 28
-          } as any
-        }
-        loop={true}
-        spaceBetween={10}
-        navigation={true}
-        thumbs={{
-          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
-        }}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className='mb-3'
-      >
-        {data.map((item) => (
-          <>
-            <SwiperSlide className='relative aspect-[2/1.8] overflow-hidden rounded-xl border bg-white shadow-lg'>
-              <Image src={item} alt='' fill className='object-cover' />
-            </SwiperSlide>
-          </>
-        ))}
-      </Swiper>
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        loop={true}
-        spaceBetween={10}
-        slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className='thumb !p-2'
-      >
-        {data.map((item) => (
-          <>
-            <SwiperSlide className='relative aspect-[2/1.5] overflow-hidden rounded-xl border bg-white p-2 shadow-lg'>
-              <Image src={item} alt='' fill className='object-cover' />
-            </SwiperSlide>
-          </>
-        ))}
-      </Swiper>
+      <div className='space-y-2'>
+        <Swiper
+          style={
+            {
+              '--swiper-navigation-color': '#ff5600',
+              '--swiper-pagination-color': '#ff5600',
+              '--swiper-navigation-size': 28
+            } as any
+          }
+          loop={true}
+          spaceBetween={10}
+          navigation={true}
+          thumbs={{
+            swiper:
+              thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
+          }}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className='mb-3'
+        >
+          {data.map((item) => (
+            <>
+              <SwiperSlide className='relative aspect-[2/1.8] overflow-hidden rounded-xl border bg-white'>
+                <Image src={item} alt='' fill className='object-cover' />
+              </SwiperSlide>
+            </>
+          ))}
+        </Swiper>
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          loop={true}
+          spaceBetween={10}
+          slidesPerView={4}
+          freeMode={true}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className='thumb !p-2'
+        >
+          {data.map((item) => (
+            <>
+              <SwiperSlide className='relative aspect-[2/1.5] overflow-hidden rounded-xl border bg-white p-2'>
+                <Image src={item} alt='' fill className='object-cover' />
+              </SwiperSlide>
+            </>
+          ))}
+        </Swiper>
+      </div>
     </>
   )
 }
