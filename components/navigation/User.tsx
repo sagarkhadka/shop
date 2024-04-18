@@ -63,7 +63,7 @@ const User = () => {
         )}
 
         <Button variant={'ghost'} className='relative' asChild>
-          <Link href='cart' className='flex items-center gap-1'>
+          <Link href='/cart' className='flex items-center gap-1'>
             <ShoppingCart size={18} />
             <div className='scale-90 rounded-full bg-fire-red px-2.5 py-1 text-xs text-white'>
               1

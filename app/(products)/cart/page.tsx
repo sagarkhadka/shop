@@ -1,7 +1,7 @@
-import React from 'react'
+import CartContainer from '@/container/products/CartContainer'
 
 const page = () => {
-  return <div>page</div>
+  return <CartContainer />
 }
 
 export default page

@@ -1,13 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
+import { ShoppingCart } from 'lucide-react'
+
 import QuantityButton from './QuantityButton'
 import { currencyFormat } from '@/utils/currencyFormat'
 import { Button } from '../ui/button'
-import { ShoppingCart } from 'lucide-react'
 
 const Order = () => {
   const [quantity, setQuantity] = useState<number>(1)
+  const [discountPrice, setDiscountPrice] = useState<number | null>(null)
+  const [delivery, setDelivery] = useState<number>(50)
+  const [price] = useState<number>(1798)
+
+  const subTotal = useMemo(() => {
+    if (quantity) {
+      const totalAmount = price * quantity + delivery
+      return totalAmount
+    } else {
+      return price
+    }
+  }, [quantity, price])
 
   return (
     <>
@@ -32,7 +45,7 @@ const Order = () => {
             </div>
             <div className='flex items-center justify-between'>
               <h6>Price</h6>
-              <p>{currencyFormat(1798 * quantity)}</p>
+              <p>{currencyFormat(price)}</p>
             </div>
             <div className='flex items-center justify-between'>
               <h6>Discount Size</h6>
@@ -48,11 +61,11 @@ const Order = () => {
         <div className='border-b border-deep-blue/30 p-4'>
           <div className='flex items-center justify-between *:text-lg *:font-semibold *:text-slate-800'>
             <h5 className=''>Sub Total</h5>
-            <p className=''>{currencyFormat(50)}</p>
+            <p className=''>{currencyFormat(subTotal)}</p>
           </div>
         </div>
 
-        <div className='space-y-2 p-4'>
+        <div className='space-y-3 p-4 pb-6'>
           <Button className='w-full rounded-md'>Buy Now</Button>
           <Button variant={'outline'} className='w-full rounded-md'>
             <ShoppingCart size={20} /> Add to cart
