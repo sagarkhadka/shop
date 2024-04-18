@@ -1,18 +1,23 @@
-import React from 'react'
+'use client'
+
+import { useState } from 'react'
 
 import { currencyFormat } from '@/utils/currencyFormat'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { colorVariants, sizeVariants } from '@/utils/constants'
+import RatingStar from './RatingStar'
+import ClampDescription from './ClampDescription'
 
 const ProductDetails = () => {
   return (
     <>
       <div className='space-y-6'>
         <div className='space-y-3'>
-          <h1 className='text-lg font-semibold sm:text-2xl md:text-4xl'>
+          <h1 className='text-lg font-semibold text-stone-600 sm:text-2xl md:text-4xl'>
             Product title goes here
           </h1>
           <div className='flex items-center gap-2'>
+            <RatingStar initialValue={4.5} />
             <span className='text-sm font-semibold'>(4.5)</span>
             <span className='text-sm font-semibold text-green-500'>
               623 reviews
@@ -27,7 +32,7 @@ const ProductDetails = () => {
 
         <div className='my-4 space-y-2'>
           <div className='space-y-2'>
-            <p className='font-semibold uppercase text-slate-600'>
+            <p className='font-semibold uppercase tracking-wider text-slate-600'>
               select color
             </p>
             <ToggleGroup
@@ -46,8 +51,8 @@ const ProductDetails = () => {
 
         <div className='my-4 space-y-2'>
           <div className='space-y-2'>
-            <p className='font-semibold uppercase text-slate-600'>
-              select color
+            <p className='font-semibold uppercase tracking-wider text-slate-600'>
+              select Size
             </p>
             <ToggleGroup
               type='single'
@@ -61,6 +66,19 @@ const ProductDetails = () => {
               ))}
             </ToggleGroup>
           </div>
+        </div>
+
+        <div className='my-4 space-y-2'>
+          <p className='font-semibold uppercase tracking-wider text-slate-600'>
+            Description
+          </p>
+          <ClampDescription />
+        </div>
+
+        <div className='my-4 space-y-2'>
+          <span>
+            <span>Sent From</span>{' '}
+          </span>
         </div>
       </div>
     </>

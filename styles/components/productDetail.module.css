@@ -1,19 +1,19 @@
 .product_detail_wrapper {
-  @apply mt-4 grid grid-cols-12 gap-12;
+  @apply mt-4 grid grid-cols-12 gap-8 lg:gap-12;
 
   .product_details {
-    @apply col-span-9 grid grid-cols-2 gap-8;
+    @apply col-span-12 grid grid-cols-2 gap-8 xl:col-span-9;
 
     .product_images {
-      @apply space-y-8;
+      @apply col-span-2 space-y-8 md:col-span-1;
     }
 
     .details {
-      @apply col-span-1;
+      @apply col-span-2 md:col-span-1;
     }
   }
 
   .product_order {
-    @apply col-span-3;
+    @apply col-span-12 sm:col-span-6 xl:col-span-3;
   }
 }

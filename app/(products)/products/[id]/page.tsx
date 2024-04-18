@@ -1,11 +1,10 @@
-import ProductDetail from '@/container/ProductDetail'
-import React from 'react'
+import ProductDetailContainer from '@/container/ProductDetailContainer'
 
 const page = () => {
   return (
     <>
       <section className='container'>
-        <ProductDetail />
+        <ProductDetailContainer />
       </section>
     </>
   )

@@ -34,6 +34,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.51.3",
     "react-loading": "^2.0.3",
+    "react-simple-star-rating": "^5.1.7",
     "reeller": "^0.0.5",
     "swiper": "^11.1.1",
     "tailwind-merge": "^2.2.2",

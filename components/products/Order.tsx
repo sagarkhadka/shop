@@ -1,10 +1,14 @@
-import React from 'react'
+'use client'
+
+import { useState } from 'react'
 import QuantityButton from './QuantityButton'
 import { currencyFormat } from '@/utils/currencyFormat'
 import { Button } from '../ui/button'
 import { ShoppingCart } from 'lucide-react'
 
 const Order = () => {
+  const [quantity, setQuantity] = useState<number>(1)
+
   return (
     <>
       <div className='sticky top-12 rounded-lg bg-white shadow-lg shadow-slate-200'>
@@ -14,7 +18,7 @@ const Order = () => {
         <div className='space-y-5 border-b border-deep-blue/30 p-4'>
           <div className='flex items-center justify-between font-semibold'>
             <h5 className='text-lg'>Quantity</h5>
-            <QuantityButton />
+            <QuantityButton setProductQuantity={setQuantity} />
           </div>
 
           <div className='space-y-3 [&>*>h6]:text-base [&>*>h6]:font-semibold [&>*>h6]:text-slate-600'>
@@ -28,7 +32,7 @@ const Order = () => {
             </div>
             <div className='flex items-center justify-between'>
               <h6>Price</h6>
-              <p>{currencyFormat(1798)}</p>
+              <p>{currencyFormat(1798 * quantity)}</p>
             </div>
             <div className='flex items-center justify-between'>
               <h6>Discount Size</h6>

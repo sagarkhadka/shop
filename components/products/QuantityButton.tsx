@@ -1,11 +1,20 @@
 'use client'
 
-import { useState } from 'react'
-import { Button } from '../ui/button'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Minus, Plus } from 'lucide-react'
 
-const QuantityButton = () => {
+import { Button } from '../ui/button'
+
+interface IQuantity {
+  setProductQuantity: Dispatch<SetStateAction<number>>
+}
+
+const QuantityButton = ({ setProductQuantity }: IQuantity) => {
   const [quantity, setQuantity] = useState(1)
+
+  useEffect(() => {
+    setProductQuantity(quantity)
+  }, [quantity])
 
   return (
     <>

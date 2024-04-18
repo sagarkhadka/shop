@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
 import 'swiper/css'
@@ -39,11 +39,11 @@ const ProductCarousel = () => {
           className='mb-3'
         >
           {data.map((item) => (
-            <>
+            <Fragment key={item}>
               <SwiperSlide className='relative aspect-[2/1.8] overflow-hidden rounded-xl border bg-white'>
                 <Image src={item} alt='' fill className='object-cover' />
               </SwiperSlide>
-            </>
+            </Fragment>
           ))}
         </Swiper>
         <Swiper
@@ -56,12 +56,12 @@ const ProductCarousel = () => {
           modules={[FreeMode, Navigation, Thumbs]}
           className='thumb !p-2'
         >
-          {data.map((item) => (
-            <>
-              <SwiperSlide className='relative aspect-[2/1.5] overflow-hidden rounded-xl border bg-white p-2'>
+          {data.map((item, index) => (
+            <Fragment key={`${item}-${index}`}>
+              <SwiperSlide className='relative aspect-[2/1.5] max-h-24 overflow-hidden rounded-xl border bg-white p-2'>
                 <Image src={item} alt='' fill className='object-cover' />
               </SwiperSlide>
-            </>
+            </Fragment>
           ))}
         </Swiper>
       </div>
