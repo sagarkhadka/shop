@@ -1,10 +1,13 @@
 export const currencyFormat = (value: number) => {
-  const formatted = new Intl.NumberFormat('en-us', {
+  const formattedValue = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'Nrs',
     minimumFractionDigits: 0,
-    maximumFractionDigits: 0
+    maximumFractionDigits: 2
   }).format(value)
+
+  // Replace the currency symbol with 'रू'
+  const formatted = formattedValue.replace(/\NRS/g, 'रू. ')
 
   return formatted
 }

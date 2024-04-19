@@ -39,7 +39,6 @@ const SignUpForm = () => {
     console.log(values)
     setTimeout(() => setIsLoading(false), 2000)
   }
-  console.log(errors)
 
   return (
     <>
