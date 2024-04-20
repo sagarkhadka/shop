@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
+import Link from 'next/link'
 import { ShoppingCart } from 'lucide-react'
 
 import QuantityButton from './QuantityButton'
@@ -66,8 +67,10 @@ const Order = () => {
         </div>
 
         <div className='space-y-3 p-4 pb-6'>
-          <Button className='w-full rounded-md'>Buy Now</Button>
-          <Button variant={'outline'} className='w-full rounded-md'>
+          <Button className='w-full' asChild>
+            <Link href='/cart'>Buy Now</Link>
+          </Button>
+          <Button variant={'outline'} className='w-full'>
             <ShoppingCart size={20} /> Add to cart
           </Button>
         </div>

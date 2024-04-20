@@ -70,6 +70,7 @@ const CartCard = ({ setSelected, price, imageUrl, productTitle }: ICart) => {
                 alt=''
                 fill
                 className='rounded-xl object-cover'
+                quality={75}
               />
             </div>
           </div>
