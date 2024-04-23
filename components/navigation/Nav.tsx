@@ -8,10 +8,10 @@ import GlobalSearch from './GlobalSearch'
 const Nav = () => {
   return (
     <>
-      <div className='mb-8 flex items-center bg-white py-3 shadow-xl shadow-slate-100'>
+      <div className='mb-8 flex items-center bg-white shadow-xl shadow-slate-100 md:py-3'>
         <div className='container'>
-          <div className='grid grid-cols-12 justify-between gap-10 pb-5 pt-3'>
-            <div className='col-span-3 flex items-center text-lg font-semibold'>
+          <div className='grid grid-cols-8 justify-between gap-10 pb-5 pt-3 md:grid-cols-12'>
+            <div className='col-span-4 flex items-center text-lg font-semibold md:col-span-3'>
               <Link href='/'>
                 <Image
                   src='/logo.svg'
@@ -23,16 +23,16 @@ const Nav = () => {
               </Link>
             </div>
 
-            <div className='col-span-6 flex justify-center'>
+            <div className='col-span-6 hidden justify-center md:flex'>
               <GlobalSearch />
             </div>
 
-            <div className='col-span-3 flex justify-end'>
+            <div className='col-span-4 flex justify-end md:col-span-3'>
               <User />
             </div>
           </div>
 
-          <div className='flex justify-center border-t pt-3'>
+          <div className='hidden justify-center border-t pt-3 md:flex'>
             <Menu />
           </div>
         </div>

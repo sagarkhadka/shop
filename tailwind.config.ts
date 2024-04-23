@@ -24,6 +24,9 @@ const config = {
         'primary-orange': '#ff5600',
         'deep-blue': '#064788'
       },
+      screens: {
+        xs: '460px'
+      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },

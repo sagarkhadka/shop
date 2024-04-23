@@ -38,7 +38,7 @@ const User = () => {
           </div>
         ) : (
           <div className='flex items-center'>
-            <Button variant={'ghost'} asChild>
+            <Button variant={'ghost'} className='hidden md:block' asChild>
               <Link href='/favorite'>
                 <Heart color='#ff5600' size={20} />
               </Link>
@@ -53,7 +53,9 @@ const User = () => {
               <DropdownMenuContent>
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
+                <DropdownMenuItem className='block md:hidden'>
+                  My Wishlist
+                </DropdownMenuItem>
                 <DropdownMenuItem>Billing</DropdownMenuItem>
                 <DropdownMenuItem>Team</DropdownMenuItem>
                 <DropdownMenuItem>Subscription</DropdownMenuItem>

@@ -12,7 +12,6 @@ const CartContainer = () => {
   const [total, setTotal] = useState<number>(0)
   // const [discountAmount, setDiscountAmount] = useState<number>(150)
   const [shippingCharge] = useState<number>(50)
-  console.log(selectedItems)
 
   useEffect(() => {
     if (selectedItems.length) {
