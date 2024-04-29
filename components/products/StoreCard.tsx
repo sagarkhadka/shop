@@ -3,6 +3,7 @@ import { MapPin, Star, Store, Verified } from 'lucide-react'
 import { Card, CardContent } from '../ui/card'
 import { DeepBlue, PrimaryOrange } from '@/utils/constants'
 import { Button } from '../ui/button'
+import Link from 'next/link'
 
 const StoreCard = () => {
   return (
@@ -24,11 +25,11 @@ const StoreCard = () => {
           <div className='flex items-center justify-between'>
             <div className='flex items-center gap-2'>
               <MapPin size={18} color={PrimaryOrange} />
-              <span>Koteshor, KTM</span>
+              <span>Koteshowr, KTM</span>
             </div>
 
-            <Button variant={'outline'} size='sm'>
-              Visit Store
+            <Button variant={'outline'} size='sm' asChild>
+              <Link href='/store/my-store'>Visit Store</Link>
             </Button>
           </div>
         </CardContent>
