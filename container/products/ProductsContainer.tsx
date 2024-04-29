@@ -28,9 +28,7 @@ const ProductsContainer = () => {
             <div className={styles.mobile_filter}>
               <Sheet>
                 <SheetTrigger>
-                  <Button variant={'link'}>
-                    <Filter />
-                  </Button>
+                  <Filter />
                 </SheetTrigger>
                 <SheetContent>
                   <SheetHeader>
