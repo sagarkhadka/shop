@@ -8,18 +8,6 @@
   }
 }
 
-.product-layout {
-  @apply grid grid-cols-12 gap-6;
-
-  .filter-container {
-    @apply col-span-2;
-  }
-
-  .product-container {
-    @apply col-span-10 grid grid-cols-4 gap-4;
-  }
-}
-
 .thumb {
   .swiper-slide-thumb-active {
     @apply p-2  ring-2 ring-primary-orange ring-offset-1;

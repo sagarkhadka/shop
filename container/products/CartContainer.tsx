@@ -15,8 +15,8 @@ const CartContainer = () => {
 
   useEffect(() => {
     if (selectedItems.length) {
-      const newSubTotal = selectedItems.reduce((accumalator, currentValue) => {
-        return accumalator + currentValue.totalPrice
+      const newSubTotal = selectedItems.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue.totalPrice
       }, 0)
 
       setTotal(newSubTotal + shippingCharge)

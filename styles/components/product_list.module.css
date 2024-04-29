@@ -1,0 +1,19 @@
+.product_layout {
+  @apply grid grid-cols-12 gap-6;
+
+  .filter_container {
+    @apply col-span-2;
+
+    .mobile_filter {
+      @apply block md:hidden;
+    }
+
+    .laptop_filter {
+      @apply sticky top-10 hidden md:block;
+    }
+  }
+
+  .product_container {
+    @apply col-span-12 grid grid-cols-1 gap-4 xs:grid-cols-2 sm:grid-cols-3 md:col-span-10 lg:grid-cols-4;
+  }
+}
