@@ -46,7 +46,7 @@ const ProductCard = ({ productTitle, imageUrl }: ICardProps) => {
             src={imageUrl}
             alt={productTitle}
             fill
-            className='z-0 object-cover'
+            className='z-0 bg-white object-contain'
           />
         </div>
         <CardHeader className='p-5'>

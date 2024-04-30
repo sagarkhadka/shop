@@ -41,7 +41,7 @@ const StoreDetail = ({ logo, name, review, duration }: IStoreDetail) => {
                   {duration} YRS
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Add to library</p>
+                  <p>Time on our store</p>
                 </TooltipContent>
               </Tooltip>
               <Tooltip>
@@ -51,7 +51,7 @@ const StoreDetail = ({ logo, name, review, duration }: IStoreDetail) => {
                   <Verified size={16} /> Verified
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Add to library</p>
+                  <p>Verified Store</p>
                 </TooltipContent>
               </Tooltip>
             </div>
