@@ -1,5 +1,13 @@
 import Link from 'next/link'
-import { ShoppingCart, UserRound, Heart } from 'lucide-react'
+import {
+  ShoppingCart,
+  UserRound,
+  Heart,
+  Package,
+  User2,
+  Star,
+  Undo2
+} from 'lucide-react'
 
 import { Button } from '../ui/button'
 import { Separator } from '../ui/separator'
@@ -51,14 +59,43 @@ const User = () => {
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuLabel>Hello, Sagar Khadka</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className='block md:hidden'>
-                  My Wishlist
+                <DropdownMenuItem>
+                  <Link
+                    href='/user/sagar-khadka'
+                    className='flex items-center gap-1'
+                  >
+                    <User2 size={20} className='text-gray-600' />
+                    Manage My Account
+                  </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
-                <DropdownMenuItem>Subscription</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href='/my-orders' className='flex items-center gap-1'>
+                    <Package size={20} className='text-gray-600' />
+                    My Orders
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href='/my-wishlist' className='flex items-center gap-1'>
+                    <Heart size={20} className='text-gray-600' />
+                    My Wishlist
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href='/my-wishlist' className='flex items-center gap-1'>
+                    <Star size={20} className='text-gray-600' />
+                    My Reviews
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href='/my-wishlist' className='flex items-center gap-1'>
+                    <Undo2 size={20} className='text-gray-600' />
+                    My Returns and Cancellation
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Logout</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
