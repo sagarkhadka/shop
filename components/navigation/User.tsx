@@ -59,7 +59,7 @@ const User = () => {
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuLabel>Hello, Sagar Khadka</DropdownMenuLabel>
+                <DropdownMenuLabel>Hello, Cahana Store</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <Link
