@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import empty from '/images/empty-cart.png'
+// import empty from '/images/empty-cart.png'
 import { Button } from './ui/button'
 
 const NoData = ({
@@ -15,7 +15,7 @@ const NoData = ({
     <>
       <div className='flex w-full flex-col items-center justify-center'>
         <Image
-          src={empty}
+          src={'/images/empty-cart.png'}
           alt=''
           height={250}
           width={250}
