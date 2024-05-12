@@ -13,7 +13,7 @@ export default function Home() {
       <section className='section-space'>
         <div className='container'>
           <SectionHeadline title='Just For You' />
-          <div className='grid grid-cols-4 gap-4'>
+          <div className='grid grid-cols-1 gap-4 xs:grid-cols-2 sm:grid-cols-3 md:col-span-10 lg:grid-cols-4'>
             {Array.from({ length: 8 }).map((_, index) => (
               <div key={index} className='p-1'>
                 <ProductCard
